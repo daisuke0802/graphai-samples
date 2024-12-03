@@ -1,0 +1,29 @@
+
+{
+    "nodes": {
+      "getDestination": {
+        "agent": "userInputAgent",
+        "params": {
+          "prompt": "Where would you like to travel?"
+        }
+      },
+      "getBudget": {
+        "agent": "userInputAgent",
+        "params": {
+          "prompt": "What is your budget and travel duration?"
+        }
+      },
+      "recommendation": {
+        "agent": "recommendationAgent",
+        "inputs": {
+          "destination": "getDestination.response",
+          "budget": "getBudget.response",
+          "duration": "getDuration.response"
+        },
+        "params": {
+          "model": "gpt-4",
+          "recommendationType": "travel"
+        }
+      }
+    }
+  }
