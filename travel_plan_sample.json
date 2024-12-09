@@ -1,0 +1,38 @@
+
+{
+    "nodes": {
+      "getDestination": {
+        "agent": "userInputAgent",
+        "params": {
+          "prompt": "Where would you like to travel?"
+        }
+      },
+      "getBudget": {
+        "agent": "userInputAgent",
+        "params": {
+          "prompt": "What is your budget and travel duration?"
+        }
+      },
+      "getDuration": {
+        "agent": "userInputAgent",
+        "params": {
+          "prompt": "How many days will you be traveling?"
+        }
+      },
+      "recommendation": {
+  "agent": "openAIAgent",
+  "inputs": {
+    "destination": ":getDestination.response",
+    "budget": ":getBudget.response",
+    "duration": ":getDuration.response"
+  },
+  "params": {
+    "model": "gpt-4o",
+    "prompt": "Generate a travel plan in JSON."
+  },
+  "isResult": true
+  }
+
+  }
+}
+  
